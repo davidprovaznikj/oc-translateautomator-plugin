@@ -1,0 +1,21 @@
+{
+    "name": "davidprovaznik/translateautomator-plugin",
+    "description": "Automate translation of untranslated strings using Google Translate.",
+    "type": "october-plugin",
+    "keywords": ["traslate", "automatic translate"],
+    "require": {
+        "php": ">=8.2",
+        "ext-json": "*",
+        "composer/installers": "^1.10",
+        "rainlab/translate-plugin": "^2.1",
+        "stichoza/google-translate-php": "^5.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Provaznik",
+            "email": "david.provaznik.j@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}

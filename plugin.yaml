@@ -1,0 +1,6 @@
+plugin:
+    name: 'Translate Automator'
+    description: 'Automate translation of untranslated strings using Google Translate.'
+    author: 'David Provaznik'
+    icon: oc-icon-cogs
+    homepage: 'https://davidprovaznik.cz'
