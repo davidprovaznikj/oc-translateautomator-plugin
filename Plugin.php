@@ -29,7 +29,6 @@ class Plugin extends PluginBase
         Event::listen('backend.page.beforeDisplay', function($controller, $action, $params) {
             if ($controller instanceof \RainLab\Translate\Controllers\Messages && $action == 'index') {
                 $controller->addJs('/plugins/davidprovaznik/translateautomator/assets/js/translateautomator.js');
-                $controller->addCss('/plugins/davidprovaznik/translateautomator/assets/css/translateautomator.css');
                 $controller->addDynamicMethod('onTranslate', function() {
                     $text = Input::get('text');
                     $localeTo = Input::get('locale_to');
