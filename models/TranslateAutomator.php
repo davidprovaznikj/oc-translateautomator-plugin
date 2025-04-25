@@ -7,7 +7,7 @@ use Exception;
 
 class TranslateAutomator extends Model
 {
-    public static function autoTranslate($text, $sourceLocale, $targetLocale)
+    public static function autoTranslate($text, $sourceLocale, $targetLocale): ?string
     {
         try {
             $tr = new GoogleTranslate();

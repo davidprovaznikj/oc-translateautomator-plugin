@@ -2,3 +2,5 @@
     - First version of TranslateAutomator plugin.
 1.0.1:
     - Remove unnecessary CSS file linking
+1.0.2:
+    - Bug fixes show button after ajax load

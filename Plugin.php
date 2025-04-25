@@ -1,6 +1,6 @@
 <?php namespace DavidProvaznik\TranslateAutomator;
 
-use RainLab\Translate\Classes\Locale;
+use RainLab\Translate\Controllers\Messages;
 use System\Classes\PluginBase;
 use Event;
 use Input;
@@ -13,7 +13,7 @@ class Plugin extends PluginBase
     public $require = [
         'Rainlab.Translate',
     ];
-    public function pluginDetails()
+    public function pluginDetails(): array
     {
         return [
             'name'        => 'Translate Automator',
@@ -23,16 +23,16 @@ class Plugin extends PluginBase
         ];
     }
 
-    public function boot()
+    public function boot(): void
     {
         // Extend the view to add custom button
-        Event::listen('backend.page.beforeDisplay', function($controller, $action, $params) {
-            if ($controller instanceof \RainLab\Translate\Controllers\Messages && $action == 'index') {
+        Event::listen('backend.page.beforeDisplay', function($controller, $action) {
+            if ($controller instanceof Messages && $action == 'index') {
                 $controller->addJs('/plugins/davidprovaznik/translateautomator/assets/js/translateautomator.js');
                 $controller->addDynamicMethod('onTranslate', function() {
                     $text = Input::get('text');
                     $localeTo = Input::get('locale_to');
-                    $defaultLocale = Locale::getDefaultSiteLocale();
+                    $defaultLocale = NULL;
 
                     $translatedText = HelperModel::autoTranslate($text, $defaultLocale, $localeTo);
 
